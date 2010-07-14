@@ -10,7 +10,9 @@ begin
     gem.email = "andrew.kalek@anlek.com"
     gem.homepage = "http://github.com/anlek/integrity-notifyio"
     gem.authors = ["Andrew Kalek"]
-    gem.add_dependency ["integrity", "httparty", "md5"]
+    ["integrity", "httparty", "md5"].each do |dep|
+      gem.add_dependency dep
+    end
     gem.add_development_dependency "shoulda"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
