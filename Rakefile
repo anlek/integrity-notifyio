@@ -10,7 +10,7 @@ begin
     gem.email = "andrew.kalek@anlek.com"
     gem.homepage = "http://github.com/anlek/integrity-notifyio"
     gem.authors = ["Andrew Kalek"]
-    ["integrity", "httparty", "md5"].each do |dep|
+    ["integrity", "httparty"].each do |dep|
       gem.add_dependency dep
     end
     gem.add_development_dependency "shoulda"
