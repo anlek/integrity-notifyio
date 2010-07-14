@@ -1,0 +1,7 @@
+= integrity-notifyio
+
+A Notify.io based notifier for the Integrity continuous integration server.
+
+== Copyright
+
+Copyright (c) 2010 Andrew Kalek. See LICENSE for details.

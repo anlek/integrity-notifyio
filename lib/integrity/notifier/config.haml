@@ -1,0 +1,8 @@
+%p.normal
+  %label{ :for => "notifyio_notifier_email" } Email
+  %input.text#notifyio_notifier_email{ :name => "notifiers[Notifyio][email]", :value => config['email'], :type => 'text' }
+  %span.hint you can do multiple emails by splitting them with a comma (',')
+ 
+%p.normal
+  %label{ :for => "notifyio_notifier_api_key" } API key
+  %input.text#notifyio_notifier_api_key{ :name => "notifiers[Notifyio][api_key]", :value => config['api_key'], :type => 'text' }
