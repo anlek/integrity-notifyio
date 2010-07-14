@@ -12,7 +12,6 @@ begin
     gem.authors = ["Andrew Kalek"]
     gem.add_dependency "integrity"
     gem.add_development_dependency "shoulda"
-    gem.rubyforge_project = "integrity"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError

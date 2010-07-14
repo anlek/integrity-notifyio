@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{integrity-notifyio}
-  s.version = "0.1.0"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Kalek"]
@@ -17,10 +17,23 @@ Gem::Specification.new do |s|
      "README.markdown",
      "README.rdoc"
   ]
+  s.files = [
+    ".gitignore",
+     "LICENSE",
+     "README.markdown",
+     "README.rdoc",
+     "Rakefile",
+     "VERSION",
+     "integrity-notifyio.gemspec",
+     "lib/integrity/notifier/config.haml",
+     "lib/integrity/notifier/notifyio.rb",
+     "lib/integrity/notifier/notifyio_client.rb",
+     "test/integrity-notifyio_test.rb",
+     "test/test_helper.rb"
+  ]
   s.homepage = %q{http://github.com/anlek/integrity-notifyio}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{integrity}
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Notifiy.io notifier for the Integrity continuous integration server}
   s.test_files = [

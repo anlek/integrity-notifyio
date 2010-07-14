@@ -1,4 +1,3 @@
-require 'integrity'
 require File.dirname(__FILE__) + '/notifyio_client.rb'
 
 module Integrity
@@ -7,7 +6,7 @@ module Integrity
       attr_reader :config
 
       def self.to_haml
-        File.read(File.dirname(__FILE__) + "/config.haml")
+        @haml ||= File.read(File.dirname(__FILE__) + "/config.haml")
       end
 
       def deliver!
