@@ -7,18 +7,33 @@ module Integrity
       attr_reader :config
 
       def self.to_haml
-        @haml ||= File.read(File.dirname(__FILE__) + "/config.haml")
+        @haml ||= File.read(File.dirname(__FILE__) + "/notifyio.haml")
       end
 
       def deliver!
-        post(config['email'], config['api_key'], short_message, full_message)
+        post(config['email'], config['api_key'], short_message, full_message) if announce_build?
       end
 
       def to_s
         'Notifyio'
       end
       
+      #######
       private
+      #######
+      
+      def full_message
+        <<-EOM
+== #{short_message}
+
+Commit Message: #{build.commit.message}
+Commit Date: #{build.commit.committed_at}
+Commit Author: #{build.commit.author.name}
+
+Link: #{build_url}
+
+EOM
+      end
       
       def post(emails, api_key, title, body)
         return if emails.nil? || email.empty? || api_key.nil? || api_key.empty?
@@ -33,6 +48,10 @@ module Integrity
                                                                                     }
           
         end
+      end
+      
+      def announce_build?
+        build.failed? || config["announce_success"]
       end
       
     end
