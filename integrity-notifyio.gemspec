@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{integrity-notifyio}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Kalek"]
@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
      "integrity-notifyio.gemspec",
      "lib/integrity/notifier/config.haml",
      "lib/integrity/notifier/notifyio.rb",
-     "lib/integrity/notifier/notifyio_client.rb",
      "test/integrity-notifyio_test.rb",
      "test/test_helper.rb"
   ]
