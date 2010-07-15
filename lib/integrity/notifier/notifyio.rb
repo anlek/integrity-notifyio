@@ -38,7 +38,7 @@ EOM
       def post(emails, api_key, title, body)
         return if emails.nil? || emails.empty? || api_key.nil? || api_key.empty?
         emails.split(',').each do |email|
-          email_hash = MD5.hexdigest(email.strip!)
+          email_hash = MD5.hexdigest(email.strip)
           HTTParty.post "http://api.notify.io/v1/notify/#{email_hash}",   :headers => {'content-type' => 'application/x-www-form-urlencoded'},
                                                                           :body => {:api_key => api_key},
                                                                           :query => {
