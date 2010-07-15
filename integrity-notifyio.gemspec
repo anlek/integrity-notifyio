@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{integrity-notifyio}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Kalek"]
-  s.date = %q{2010-07-14}
+  s.date = %q{2010-07-15}
   s.description = %q{Let Integrity post notifications to your Notifiy.io account after each build}
   s.email = %q{andrew.kalek@anlek.com}
   s.extra_rdoc_files = [
@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "integrity-notifyio.gemspec",
-     "lib/integrity/notifier/config.haml",
+     "lib/integrity/notifier/notifyio.haml",
      "lib/integrity/notifier/notifyio.rb",
      "test/integrity-notifyio_test.rb",
      "test/test_helper.rb"
