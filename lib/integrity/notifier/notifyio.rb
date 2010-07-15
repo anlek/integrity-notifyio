@@ -11,7 +11,7 @@ module Integrity
       end
 
       def deliver!
-        post(config['email'], config['api_key'], short_message, full_message) if announce_build?
+        post(config['email'], config['api_key'], short_message, full_message, :link => build_url) if announce_build?
       end
 
       def to_s
@@ -22,20 +22,24 @@ module Integrity
       private
       #######
       
-      def full_message
-        <<-EOM
-== #{short_message}
-
-Commit Message: #{build.commit.message}
-Commit Date: #{build.commit.committed_at}
-Commit Author: #{build.commit.author.name}
-
-Link: #{build_url}
-
-EOM
+      def short_message
+        "#{build.project.name} :: #{build.human_status}"
       end
       
-      def post(emails, api_key, title, body)
+      def full_message
+        msg = []
+        msg << "== #{build.failed? ? "Failed" : "Passed!"} =="
+        msg << ''
+        msg << "Commit Author: #{build.commit.author.name}"
+        msg << "Commit Date: #{build.commit.committed_at}"
+        msg << "Commit Message: #{build.commit.message}"
+        msg << ''
+        msg << "Link: #{build_url}"
+        
+        msg.join("\n")
+      end
+      
+      def post(emails, api_key, title, body, options={})
         return if emails.nil? || emails.empty? || api_key.nil? || api_key.empty?
         emails.split(',').each do |email|
           email_hash = MD5.hexdigest(email.strip)
@@ -44,7 +48,8 @@ EOM
                                                                           :query => {
                                                                                       :api_key => api_key,
                                                                                       :title => title,
-                                                                                      :text => body
+                                                                                      :text => body,
+                                                                                      :link => options[:link]
                                                                                     }
           
         end

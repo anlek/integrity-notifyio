@@ -2,6 +2,18 @@
 
 A Notify.io based notifier for the Integrity continuous integration server.
 
+== Installation 
+
+To use integrity-notifyio you need to do the following:
+In the *Gemfile* add:
+  gem "integrity-notifyio", '>=0.2.2'
+  
+In *init.rb* add:
+  # = Notify.io
+  require "integrity/notifier/notifyio"
+  
+Reload Integrity and you should be able to add/edit your projects and see the new Notify.IO panel
+
 == Copyright
 
 Copyright (c) 2010 Andrew Kalek. See LICENSE for details.

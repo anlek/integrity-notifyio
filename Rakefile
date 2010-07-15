@@ -10,6 +10,7 @@ begin
     gem.email = "andrew.kalek@anlek.com"
     gem.homepage = "http://github.com/anlek/integrity-notifyio"
     gem.authors = ["Andrew Kalek"]
+    gem.extra_rdoc_files = ['Changelog']
     ["httparty"].each do |dep|
       gem.add_dependency dep
     end

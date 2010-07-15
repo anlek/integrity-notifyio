@@ -4,22 +4,22 @@ Integrity
 [Integrity][] is your friendly automated Continuous Integration server.
 
 Integrity Notify.io Notifier
-=========================
+============================
 
 This lets Integrity post notifications to Notify.io after each build is made.
 
 Setup Instructions
 ==================
 
-Just install this gem via `sudo gem install integrity-notifyio` and then in your
-Rackup (ie, `config.ru`) file:
-
-    require "rubygems"
-    require "integrity/notifier/notifyio"
-
-Now you can set up your projects to post notifications to your
-Notify.io after each build (just edit the project and the config options 
-should be there)
+To use integrity-notifyio you need to do the following:
+In the *Gemfile* add:
+  gem "integrity-notifyio", '>=0.2.2'
+  
+In *init.rb* add:
+  # = Notify.io
+  require "integrity/notifier/notifyio"
+  
+Reload Integrity and you should be able to add/edit your projects and see the new Notify.IO panel
 
 License
 =======

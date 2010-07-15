@@ -1,0 +1,6 @@
+0.2.2
+  Improved printout, including project name and pass or failed
+  Added link attribute to be passed to Notify.io
+  Added installation instructions to README
+0.2.1
+  First Working version
