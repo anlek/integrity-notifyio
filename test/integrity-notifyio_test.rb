@@ -28,12 +28,12 @@ class IntegrityNotifyioTest < Test::Unit::TestCase
     end
 
     [:successful, :failed, :pending].each do |status|
-      should "post a notification to the tumblelog after completing a #{status} build" do
+      should "post a notification to notify.io after completing a #{status} build" do
         commit = Integrity::Commit.gen(status)
         config = { :email => "foo@example.org", :api_key => "key123" }
         notifier = Integrity::Notifier::Notifyio.new(commit, config)
 
-        mock(Integrity::Notifier::NotifyioClient).post(config['email'], config['api_key'], notifier.short_message, notifier.full_message)
+        mock(Integrity::Notifier::Notifyio).post(config['email'], config['api_key'], notifier.short_message, notifier.full_message)
 
         notifier.deliver!
       end

@@ -1,4 +1,6 @@
 require File.dirname(__FILE__) + '/notifyio_client.rb'
+require 'httparty'
+require 'md5'
 
 module Integrity
   class Notifier
@@ -10,12 +12,28 @@ module Integrity
       end
 
       def deliver!
-        NotifyioClient.post(config['email'], config['api_key'], short_message, full_message)
+        post(config['email'], config['api_key'], short_message, full_message)
       end
 
       def to_s
         'Notifyio'
       end
+      
+      private
+      
+      def post(emails, api_key, title, body)
+        emails.split(',').each do |email|
+          email_hash = MD5.hexdigest(email.strip!)
+          HTTParty.post "http://api.notify.io/v1/notify/#{email_hash}?api_key=#{api_key}", :body => {
+                                                                                                      :type => 'regular',
+                                                                                                      :title => title,
+                                                                                                      :body => body,
+                                                                                                      :generator => 'integrity-notifyio notifier' 
+                                                                                                    }
+          
+        end
+      end
+      
     end
 
     register Notifyio
