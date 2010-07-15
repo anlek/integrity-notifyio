@@ -1,4 +1,3 @@
-require File.dirname(__FILE__) + '/notifyio_client.rb'
 require 'httparty'
 require 'md5'
 
