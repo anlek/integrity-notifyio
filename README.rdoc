@@ -1,10 +1,15 @@
-= integrity-notifyio
+== Integrity Notify.io Notifier
 
-A Notify.io based notifier for the Integrity continuous integration server.
+This lets Integrity post notifications to Notify.io after each build is made.
+
+Learn more about Notify.io[http://notify.io]
+Learn more about Integrity[http://integrityapp.com]
+Learn more about our anlek[http://github.com/anlek] projects
 
 == Installation 
 
 To use integrity-notifyio you need to do the following:
+
 In the *Gemfile* add:
   gem "integrity-notifyio", '>=0.2.2'
   
@@ -16,4 +21,4 @@ Reload Integrity and you should be able to add/edit your projects and see the ne
 
 == Copyright
 
-Copyright (c) 2010 Andrew Kalek. See LICENSE for details.
+Copyright (c) 2011 Andrew Kalek, Anlek Consulting. See LICENSE for details.
